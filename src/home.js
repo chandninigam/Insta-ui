@@ -56,11 +56,14 @@ export default function Home() {
                 }}
                 style={styles.userImage}
               />
+              <View style={styles.plusCircleStory}>
+                <Icon name="pluscircle" color="#1885f2" size={16} />
+              </View>
             </TouchableOpacity>
             <Text style={styles.storyName}>Your Story</Text>
           </View>
         </TouchableOpacity>
-        {/*  Stories COntainer
+        {/*  Stories Container
          */}
         <View style={styles.storiesOtherUserView}>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
@@ -81,10 +84,12 @@ function UserStories({ eachUser }) {
     // - label (name)
     <View style={styles.storyOtherUserViewContainer}>
       <TouchableOpacity>
-        <Image
-          source={{ uri: eachUser.imageUrl }}
-          style={styles.userOtherUserImage}
-        />
+        <View style={styles.storiesImageView}>
+          <Image
+            source={{ uri: eachUser.imageUrl }}
+            style={styles.userOtherUserImage}
+          />
+        </View>
         <Text style={styles.storyOtherUserName}>{eachUser.displayName}</Text>
       </TouchableOpacity>
     </View>
@@ -121,40 +126,61 @@ const styles = StyleSheet.create({
     marginTop: height / 60,
     alignItems: "center",
   },
-
   storyViewContainer: {
     display: "flex",
     alignItems: "center",
+    position: "relative",
     marginRight: height / 300,
   },
   userImage: {
     height: height / 16,
     width: height / 16,
-    borderRadius: height / 16,
+    borderRadius: height / 30,
+    marginTop: height / 170,
+  },
+  plusCircleStory: {
+    position: "absolute",
+    backgroundColor: "white",
+    borderRadius: 12,
+    borderColor: "white",
+    borderWidth: 2,
+    bottom: 0,
+    right: 0,
   },
   storyName: {
     display: "flex",
     flexDirection: "row",
     marginTop: height / 100,
+    fontSize: 12,
   },
   storiesOtherUserView: {
     marginHorizontal: height / 80,
   },
   storyOtherUserViewContainer: {
-    paddingHorizontal: height / 150,
+    paddingHorizontal: height / 200,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
   },
+  storiesImageView: {
+    borderRadius: 50,
+    borderColor: "#fa8b2a",
+    borderWidth: 3,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: height / 13,
+    width: height / 13,
+  },
   userOtherUserImage: {
     height: height / 16,
     width: height / 16,
-    borderRadius: height / 16,
+    borderRadius: height / 30,
   },
   storyOtherUserName: {
     display: "flex",
     alignSelf: "center",
     fontSize: 12,
-    marginTop: height / 100,
+    marginTop: height / 200,
   },
 });

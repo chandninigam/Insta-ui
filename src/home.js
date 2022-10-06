@@ -9,10 +9,19 @@ import {
 } from "react-native";
 import { AntDesign as Icon } from "@expo/vector-icons";
 import { DummyData } from "./dummyData/home/userData";
+import { useFonts } from "expo-font";
 
 const { height } = Dimensions.get("window");
 
 export default function Home() {
+  const [loaded] = useFonts({
+    billabong: require("../assets/fonts/billabong.ttf"),
+  });
+
+  if (!loaded) {
+    return null;
+  }
+
   return (
     // Main Container
     <View style={styles.mainContainer}>
@@ -113,8 +122,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   heading: {
-    fontSize: 24,
+    fontSize: 36,
     marginRight: height / 120,
+    fontFamily: "billabong",
   },
   plusIcon: {
     marginHorizontal: height / 40,

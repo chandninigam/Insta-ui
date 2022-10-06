@@ -7,9 +7,10 @@ import {
   ScrollView,
   Image,
 } from "react-native";
-import { AntDesign as Icon } from "@expo/vector-icons";
+import { AntDesign as Icon, Entypo as Icon1 } from "@expo/vector-icons";
 import { DummyData } from "./dummyData/home/userData";
 import { useFonts } from "expo-font";
+import { DummyPostData } from "./dummyData/home/postData";
 
 const { height } = Dimensions.get("window");
 
@@ -82,10 +83,25 @@ export default function Home() {
           </ScrollView>
         </View>
       </View>
+      {/* 
+       Posts Container
+      */}
+      <View style={styles.postsMainContainer}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          {DummyPostData.map((eachPost) => (
+            <Posts eachPost={eachPost} />
+          ))}
+        </ScrollView>
+      </View>
     </View>
   );
 }
 
+/**
+ * Other Users Stories
+ * @param  eacUser --- having detail of each story like url, aname of person
+ * @returns ViewContainer
+ */
 function UserStories({ eachUser }) {
   return (
     // Story Container for single user, 2 parts --->
@@ -101,6 +117,31 @@ function UserStories({ eachUser }) {
         </View>
         <Text style={styles.storyOtherUserName}>{eachUser.displayName}</Text>
       </TouchableOpacity>
+    </View>
+  );
+}
+
+/**
+ * Posts of Other Users
+ */
+function Posts({ eachPost }) {
+  return (
+    // MainContainer having 1
+    // -> Post Header
+    <View style={styles.postMainView}>
+      {/* Post Header
+          -> User Profile Image
+          -> User Name
+          -> Three Dots Icon
+      */}
+      <View style={styles.postHeaderContainer}>
+        <Image
+          source={{ uri: eachPost.userProfile }}
+          style={styles.postUserProfile}
+        />
+        <Text style={styles.postUserName}>{eachPost.userName}</Text>
+        <Icon1 name="dots-three-vertical" size={16} />
+      </View>
     </View>
   );
 }
@@ -192,5 +233,28 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     fontSize: 12,
     marginTop: height / 200,
+  },
+  postsMainContainer: {
+    display: "flex",
+    marginHorizontal: height / 80,
+  },
+  postMainView: {
+    display: "flex",
+    marginTop: height / 80,
+  },
+  postHeaderContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  postUserProfile: {
+    height: height / 24,
+    width: height / 24,
+    borderRadius: height / 12,
+  },
+  postUserName: {
+    flex: 1,
+    fontSize: height / 50,
+    paddingLeft: height / 60,
   },
 });

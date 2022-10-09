@@ -7,12 +7,17 @@ import {
   ScrollView,
   Image,
 } from "react-native";
-import { AntDesign as Icon, Entypo as Icon1 } from "@expo/vector-icons";
+import {
+  AntDesign as Icon,
+  Entypo as Icon1,
+  EvilIcons as Icon3,
+  Feather as Icon4,
+} from "@expo/vector-icons";
 import { DummyData } from "./dummyData/home/userData";
 import { useFonts } from "expo-font";
 import { DummyPostData } from "./dummyData/home/postData";
 
-const { height } = Dimensions.get("window");
+const { height, width } = Dimensions.get("window");
 
 export default function Home() {
   const [loaded] = useFonts({
@@ -87,7 +92,7 @@ export default function Home() {
        Posts Container
       */}
       <View style={styles.postsMainContainer}>
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <ScrollView vertical showsVerticalScrollIndicator={false}>
           {DummyPostData.map((eachPost) => (
             <Posts eachPost={eachPost} />
           ))}
@@ -142,6 +147,61 @@ function Posts({ eachPost }) {
         <Text style={styles.postUserName}>{eachPost.userName}</Text>
         <Icon1 name="dots-three-vertical" size={16} />
       </View>
+      {/* Actual Image With Touchable property
+       */}
+      <TouchableOpacity>
+        <Image
+          source={{ uri: eachPost.actualPost }}
+          style={styles.actualPostImage}
+        />
+      </TouchableOpacity>
+      {/* LikeCommentShareBookmark Icon Container
+       */}
+      <View style={styles.likeCommentContainer}>
+        <TouchableOpacity>
+          <Icon name="hearto" color="black" size={24} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.commentIcon}>
+          <Icon3 name="comment" color="black" size={36} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.shareIcon}>
+          <Icon name="sharealt" color="black" size={24} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Icon4 name="bookmark" color="black" size={24} />
+        </TouchableOpacity>
+      </View>
+      {/* Liked People name and Liked Number
+       */}
+      <View style={styles.likedContainer}>
+        <Image
+          source={{ uri: eachPost.recentLikedPersonImage }}
+          style={styles.recentLikedPeople}
+        />
+        <View style={styles.likedByTextView}>
+          <Text style={styles.likedByText}>Liked by</Text>
+          <Text style={styles.likedByTextHighlighted}>{eachPost.likedby}</Text>
+          <Text style={styles.likedByText}>and</Text>
+          <Text style={styles.likedByTextHighlighted}>
+            {eachPost.likedNumber} others
+          </Text>
+        </View>
+      </View>
+      {/* Post Thought
+       */}
+      <View style={styles.thoughtPost}>
+        <Text style={styles.thoughtPostedName}>
+          {eachPost.userName}
+          <Text style={styles.thoughtText}>{eachPost.postThought}</Text>
+          ... more
+        </Text>
+      </View>
+      {/* View Total Comments */}
+      <View style={styles.totalComments}>
+        <Text style={styles.totalCommentsText}>
+          View all {eachPost.commentsNumber} comments
+        </Text>
+      </View>
     </View>
   );
 }
@@ -150,6 +210,7 @@ function Posts({ eachPost }) {
 const styles = StyleSheet.create({
   mainContainer: {
     marginTop: height / 20,
+    backgroundColor: "white",
   },
   headerView: {
     marginHorizontal: height / 50,
@@ -236,7 +297,6 @@ const styles = StyleSheet.create({
   },
   postsMainContainer: {
     display: "flex",
-    marginHorizontal: height / 80,
   },
   postMainView: {
     display: "flex",
@@ -246,6 +306,8 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
+    marginHorizontal: height / 80,
+    marginBottom: height / 100,
   },
   postUserProfile: {
     height: height / 24,
@@ -256,5 +318,61 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: height / 50,
     paddingLeft: height / 60,
+  },
+  actualPostImage: {
+    height: height / 2,
+    width: width,
+  },
+  likeCommentContainer: {
+    display: "flex",
+    flexDirection: "row",
+    marginHorizontal: height / 80,
+    paddingTop: height / 100,
+    alignItems: "center",
+  },
+  commentIcon: {
+    marginHorizontal: height / 70,
+  },
+  shareIcon: {
+    flex: 1,
+  },
+  likedContainer: {
+    display: "flex",
+    flexDirection: "row",
+    marginHorizontal: height / 80,
+    marginTop: height / 100,
+    alignItems: "center",
+  },
+  recentLikedPeople: {
+    height: height / 40,
+    width: height / 40,
+    borderRadius: height / 15,
+  },
+  likedByTextView: {
+    marginLeft: height / 70,
+    display: "flex",
+    flexDirection: "row",
+  },
+  likedByTextHighlighted: {
+    marginHorizontal: height / 200,
+    fontWeight: "500",
+  },
+  thoughtPost: {
+    marginHorizontal: height / 80,
+    marginTop: height / 100,
+  },
+  thoughtPostedName: {
+    fontWeight: "500",
+  },
+  thoughtText: {
+    fontWeight: "300",
+  },
+  totalComments: {
+    marginHorizontal: height / 80,
+    marginTop: height / 100,
+  },
+  totalCommentsText: {
+    fontWeight: "200",
+    fontSize: 16,
   },
 });

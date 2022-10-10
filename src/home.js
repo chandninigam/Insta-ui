@@ -52,52 +52,53 @@ export default function Home() {
           <Icon name="message1" size={24} />
         </TouchableOpacity>
       </View>
-      {/* 
+      {/* Scroll View */}
+      <ScrollView vertical showsVerticalScrollIndicator={false}>
+        {/* 
           Story Container (2 parts)
            - Your Story 
            - Others Stories
       */}
-      <View style={styles.storiesMainContainer}>
-        {/*  Your Story Container havoing two parts
+        <View style={styles.storiesMainContainer}>
+          {/*  Your Story Container havoing two parts
               - Image 
               - label (Your Story)
          */}
-        <TouchableOpacity>
-          <View style={styles.storyViewContainer}>
-            <TouchableOpacity>
-              <Image
-                source={{
-                  uri: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80",
-                }}
-                style={styles.userImage}
-              />
-              <View style={styles.plusCircleStory}>
-                <Icon name="pluscircle" color="#1885f2" size={16} />
-              </View>
-            </TouchableOpacity>
-            <Text style={styles.storyName}>Your Story</Text>
+          <TouchableOpacity>
+            <View style={styles.storyViewContainer}>
+              <TouchableOpacity>
+                <Image
+                  source={{
+                    uri: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80",
+                  }}
+                  style={styles.userImage}
+                />
+                <View style={styles.plusCircleStory}>
+                  <Icon name="pluscircle" color="#1885f2" size={16} />
+                </View>
+              </TouchableOpacity>
+              <Text style={styles.storyName}>Your Story</Text>
+            </View>
+          </TouchableOpacity>
+          {/*  Stories Container
+           */}
+          <View style={styles.storiesOtherUserView}>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              {DummyData.map((eachUser) => (
+                <UserStories eachUser={eachUser} />
+              ))}
+            </ScrollView>
           </View>
-        </TouchableOpacity>
-        {/*  Stories Container
-         */}
-        <View style={styles.storiesOtherUserView}>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {DummyData.map((eachUser) => (
-              <UserStories eachUser={eachUser} />
-            ))}
-          </ScrollView>
         </View>
-      </View>
-      {/* 
+        {/* 
        Posts Container
       */}
-      <View style={styles.postsMainContainer}>
-        <ScrollView vertical showsVerticalScrollIndicator={false}>
+        <View style={styles.postsMainContainer}>
           {DummyPostData.map((eachPost) => (
             <Posts eachPost={eachPost} />
           ))}
-        </ScrollView>
-      </View>
+        </View>
+      </ScrollView>
     </View>
   );
 }

@@ -43,7 +43,22 @@ export const DummyPostData = [
     likedNumber: "18,458",
     postThought:
       "Vijaydashami is about conquering the basic qualities if existence",
-    commentsNumber: "152",
+    commentsNumber: "250",
     postTime: "16 hours ago",
+  },
+  {
+    userProfile:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNPY27vtW-XQV8JpGRv8GPNBiLnqEwaYakAw&usqp=CAU",
+    userName: "Andre Flores",
+    actualPost:
+      "https://louisem.com/wp-content/uploads/2015/04/inspirational-quotes-dreams3.jpg",
+    recentLikedPersonImage:
+      "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80",
+    likedby: "nigam_chandni",
+    likedNumber: "13,458",
+    postThought:
+      "Vijaydashami is about conquering the basic qualities if existence",
+    commentsNumber: "200",
+    postTime: "19 hours ago",
   },
 ];

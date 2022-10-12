@@ -63,6 +63,15 @@ export default function Profile() {
           </View>
         </View>
       </View>
+      {/* Edit Profile Container */}
+      <View style={styles.editContainer}>
+        <View style={styles.editView}>
+          <Text style={styles.editText}>Edit Profile</Text>
+        </View>
+        <View style={styles.userIcon}>
+          <Icon3 name="person-add-outline" size={20} />
+        </View>
+      </View>
     </View>
   );
 }
@@ -139,5 +148,32 @@ const styles = StyleSheet.create({
   postText: {
     fontSize: 16,
     marginTop: height / 150,
+  },
+  editContainer: {
+    display: "flex",
+    flexDirection: "row",
+    paddingHorizontal: height / 80,
+    marginTop: height / 40,
+  },
+  editView: {
+    backgroundColor: "white",
+    flex: 1,
+    padding: height / 80,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: height / 120,
+  },
+  editText: {
+    fontWeight: "700",
+  },
+  userIcon: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginLeft: height / 88,
+    padding: height / 150,
+    backgroundColor: "white",
+    borderRadius: height / 120,
   },
 });

@@ -4,6 +4,7 @@ import {
   View,
   Dimensions,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import {
   Feather as Icon,
@@ -15,7 +16,9 @@ const { height, width } = Dimensions.get("window");
 export default function Profile() {
   return (
     <View style={styles.mainContainer}>
-      {/* Header     */}
+      {/*      
+        - Top Header
+      */}
       <View style={styles.headerContainer}>
         <Icon name="lock" size={24} />
         <Text style={styles.profileName}>Wanda_Klein</Text>
@@ -28,6 +31,36 @@ export default function Profile() {
         </TouchableOpacity>
         <View style={styles.overLayCircle}>
           <Text>1</Text>
+        </View>
+      </View>
+      {/* Sub Header */}
+      <View style={styles.subHeader}>
+        {/* Profile with userName */}
+        <View style={styles.profileContainer}>
+          <Image
+            source={{
+              uri: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80",
+            }}
+            style={styles.profileImage}
+          />
+          <Text style={styles.profileText}>Wanda_Klein</Text>
+        </View>
+        <View style={styles.aboutProfileContainer}>
+          {/* Posts */}
+          <View style={styles.posts}>
+            <Text style={styles.postNumber}>3</Text>
+            <Text style={styles.postText}>Posts</Text>
+          </View>
+          {/* Followers */}
+          <View style={styles.posts}>
+            <Text style={styles.postNumber}>169</Text>
+            <Text style={styles.postText}>Followers</Text>
+          </View>
+          {/* Following */}
+          <View style={styles.posts}>
+            <Text style={styles.postNumber}>221</Text>
+            <Text style={styles.postText}>Following</Text>
+          </View>
         </View>
       </View>
     </View>
@@ -69,5 +102,42 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: "black",
     top: 8,
+  },
+  subHeader: {
+    display: "flex",
+    flexDirection: "row",
+    paddingHorizontal: height / 80,
+    marginTop: height / 48,
+    alignItems: "center",
+  },
+  profileImage: {
+    height: height / 12,
+    width: height / 12,
+    borderRadius: height / 12,
+  },
+  profileText: {
+    fontSize: 16,
+    marginTop: height / 62,
+  },
+  aboutProfileContainer: {
+    display: "flex",
+    flexDirection: "row",
+    padding: height / 32,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  posts: {
+    display: "flex",
+    alignItems: "center",
+    marginBottom: height / 56,
+    paddingHorizontal: height / 56,
+  },
+  postNumber: {
+    fontSize: 20,
+    fontWeight: "700",
+  },
+  postText: {
+    fontSize: 16,
+    marginTop: height / 150,
   },
 });

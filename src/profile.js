@@ -65,9 +65,11 @@ export default function Profile() {
       </View>
       {/* Edit Profile Container */}
       <View style={styles.editContainer}>
+        {/* Edit Btn */}
         <View style={styles.editView}>
           <Text style={styles.editText}>Edit Profile</Text>
         </View>
+        {/* User Icon */}
         <View style={styles.userIcon}>
           <Icon3 name="person-add-outline" size={20} />
         </View>

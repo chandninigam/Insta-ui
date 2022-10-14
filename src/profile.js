@@ -11,6 +11,7 @@ import {
   AntDesign as Icon2,
   Ionicons as Icon3,
 } from "@expo/vector-icons";
+import { MemoriesData } from "./dummyData/profile/memoryData";
 
 const { height, width } = Dimensions.get("window");
 export default function Profile() {
@@ -74,9 +75,37 @@ export default function Profile() {
           <Icon3 name="person-add-outline" size={20} />
         </View>
       </View>
+      {/* Memories Container */}
+      <View style={styles.memoryContainer}>
+        {/* Memories Images */}
+        {MemoriesData.map((eachMemories) => (
+          <MemoriesImagesContainer eachMemories={eachMemories} />
+        ))}
+        {/*  Create New Memories Container */}
+        <View style={styles.singleMemoryContainer}>
+          <TouchableOpacity style={styles.memoryTouch}>
+            <View style={styles.newIconContainer}>
+              <Icon name="plus" size={32} />
+            </View>
+            <Text style={styles.memoryText}>New</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     </View>
   );
 }
+
+function MemoriesImagesContainer({ eachMemories }) {
+  return (
+    <View style={styles.singleMemoryContainer}>
+      <TouchableOpacity style={styles.memoryTouch}>
+        <Image source={{ uri: eachMemories.url }} style={styles.memoryImage} />
+        <Text style={styles.memoryText}>{eachMemories.tagName}</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
+
 const styles = StyleSheet.create({
   mainContainer: {
     marginTop: 50,
@@ -177,5 +206,36 @@ const styles = StyleSheet.create({
     padding: height / 150,
     backgroundColor: "white",
     borderRadius: height / 120,
+  },
+  memoryContainer: {
+    display: "flex",
+    flexDirection: "row",
+    marginHorizontal: height / 80,
+    marginTop: height / 40,
+  },
+  singleMemoryContainer: {
+    paddingHorizontal: height / 120,
+  },
+  memoryTouch: {
+    display: "flex",
+    alignItems: "center",
+  },
+  memoryImage: {
+    height: height / 14,
+    width: height / 14,
+    borderRadius: height / 7,
+  },
+  memoryText: {
+    marginTop: height / 150,
+  },
+  newIconContainer: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: height / 14,
+    width: height / 14,
+    borderRadius: height / 7,
+    borderColor: "black",
+    borderWidth: 1,
   },
 });

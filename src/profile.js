@@ -99,7 +99,12 @@ function MemoriesImagesContainer({ eachMemories }) {
   return (
     <View style={styles.singleMemoryContainer}>
       <TouchableOpacity style={styles.memoryTouch}>
-        <Image source={{ uri: eachMemories.url }} style={styles.memoryImage} />
+        <View style={styles.imageContainer}>
+          <Image
+            source={{ uri: eachMemories.url }}
+            style={styles.memoryImage}
+          />
+        </View>
         <Text style={styles.memoryText}>{eachMemories.tagName}</Text>
       </TouchableOpacity>
     </View>
@@ -220,6 +225,16 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
   },
+  imageContainer: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: height / 12,
+    width: height / 12,
+    borderRadius: height / 6,
+    borderColor: "#919190",
+    borderWidth: 1,
+  },
   memoryImage: {
     height: height / 14,
     width: height / 14,
@@ -232,8 +247,8 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    height: height / 14,
-    width: height / 14,
+    height: height / 13,
+    width: height / 13,
     borderRadius: height / 7,
     borderColor: "black",
     borderWidth: 1,

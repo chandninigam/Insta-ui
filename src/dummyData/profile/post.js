@@ -1,4 +1,4 @@
-//  User Actual Post Share on Instagarm
+//  User Actual Post Share on Instagram
 
 export const PostsArray = [
   {
@@ -24,6 +24,7 @@ export const PostsArray = [
   },
 ];
 
+// Tagged Post Shared on Instagram
 export const TaggedPostArray = [
   {
     uri: "https://www.istockphoto.com/photo/multi-generation-family-on-beach-gm170536938-21060039",

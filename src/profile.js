@@ -5,13 +5,16 @@ import {
   Dimensions,
   TouchableOpacity,
   Image,
+  useWindowDimensions,
 } from "react-native";
 import {
   Feather as Icon,
   AntDesign as Icon2,
   Ionicons as Icon3,
 } from "@expo/vector-icons";
+import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 import { MemoriesData } from "./dummyData/profile/memoryData";
+import { useState } from "react";
 
 const { height, width } = Dimensions.get("window");
 export default function Profile() {
@@ -91,6 +94,8 @@ export default function Profile() {
           </TouchableOpacity>
         </View>
       </View>
+      {/* Post Tagged Container */}
+      <ContentTabView />
     </View>
   );
 }
@@ -111,9 +116,88 @@ function MemoriesImagesContainer({ eachMemories }) {
   );
 }
 
+function Posts() {
+  return (
+    <View style={{ flex: 1 }}>
+      <Text>Posts</Text>
+    </View>
+  );
+}
+function TaggedPosts() {
+  return (
+    <View style={{ backgroundColor: "yellow", flex: 1 }}>
+      <Text>TaggedPosts</Text>
+    </View>
+  );
+}
+
+const scene = SceneMap({
+  posts: Posts,
+  taggedPosts: TaggedPosts,
+});
+
+const renderTabBar = (props) => {
+  const iconMap = {
+    posts: "ios-card-outline",
+    taggedPosts: "person-circle-outline",
+  };
+  return (
+    <TabBar
+      {...props}
+      renderTabBarItem={({ defaultTabWidth, key, onPress }) => {
+        return (
+          <TouchableOpacity
+            style={{
+              backgroundColor: "white",
+              height: 48,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: defaultTabWidth,
+              borderBottomWidth: 2,
+            }}
+            onPress={onPress}
+          >
+            <Icon3 name={iconMap[key]} size={32} color="black" />
+          </TouchableOpacity>
+        );
+      }}
+    />
+  );
+};
+
+function ContentTabView() {
+  const layout = useWindowDimensions();
+  const [index, setIndex] = useState(0);
+  const [routes] = useState([
+    { key: "posts", title: "" },
+    { key: "taggedPosts", title: "" },
+  ]);
+  return (
+    <View
+      style={{
+        flex: 1,
+        width: "100%",
+        marginTop: 24,
+      }}
+    >
+      <TabView
+        navigationState={{ index, routes }}
+        renderScene={scene}
+        onIndexChange={setIndex}
+        initialLayout={{ width: layout.width, height: 200 }}
+        renderTabBar={renderTabBar}
+      />
+    </View>
+  );
+}
+
 const styles = StyleSheet.create({
   mainContainer: {
     marginTop: 50,
+    display: "flex",
+    flexDirection: "column",
+    minHeight: height,
   },
   headerContainer: {
     display: "flex",

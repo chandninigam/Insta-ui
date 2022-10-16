@@ -125,7 +125,7 @@ function Posts() {
 }
 function TaggedPosts() {
   return (
-    <View style={{ backgroundColor: "yellow", flex: 1 }}>
+    <View style={{ flex: 1 }}>
       <Text>TaggedPosts</Text>
     </View>
   );
@@ -144,7 +144,17 @@ const renderTabBar = (props) => {
   return (
     <TabBar
       {...props}
-      renderTabBarItem={({ defaultTabWidth, key, onPress }) => {
+      style={{
+        backgroundColor: "white",
+      }}
+      pressColor="#000"
+      renderTabBarItem={({
+        defaultTabWidth,
+        key,
+        onPress,
+        navigationState,
+      }) => {
+        const selected = navigationState.routes[navigationState.index].key;
         return (
           <TouchableOpacity
             style={{
@@ -154,7 +164,7 @@ const renderTabBar = (props) => {
               justifyContent: "center",
               alignItems: "center",
               width: defaultTabWidth,
-              borderBottomWidth: 2,
+              borderBottomWidth: key === selected ? 2 : 0,
             }}
             onPress={onPress}
           >

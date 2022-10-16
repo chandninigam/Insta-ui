@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Image,
   useWindowDimensions,
+  ScrollView,
 } from "react-native";
 import {
   Feather as Icon,
@@ -15,6 +16,7 @@ import {
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 import { MemoriesData } from "./dummyData/profile/memoryData";
 import { useState } from "react";
+import { PostsArray, TaggedPostArray } from "./dummyData/profile/post";
 
 const { height, width } = Dimensions.get("window");
 export default function Profile() {
@@ -118,15 +120,54 @@ function MemoriesImagesContainer({ eachMemories }) {
 
 function Posts() {
   return (
-    <View style={{ flex: 1 }}>
-      <Text>Posts</Text>
+    <View
+      style={{
+        flex: 1,
+        display: "flex",
+        flexWrap: "wrap",
+        flexDirection: "row",
+      }}
+    >
+      {PostsArray.map((eachPost) => (
+        <ActualPost eachPost={eachPost} />
+      ))}
     </View>
   );
 }
+
+// Actual Post Component
+function ActualPost({ eachPost }) {
+  return (
+    <TouchableOpacity>
+      <Image
+        source={{
+          uri: eachPost.url,
+        }}
+        style={{
+          height: height / 8,
+          width: height / 9,
+          marginRight: 4,
+          marginBottom: 4,
+        }}
+      />
+    </TouchableOpacity>
+  );
+}
+
+// Tagged Post Component
 function TaggedPosts() {
   return (
-    <View style={{ flex: 1 }}>
-      <Text>TaggedPosts</Text>
+    <View
+      style={{
+        flex: 1,
+        display: "flex",
+        flexWrap: "wrap",
+        flexDirection: "row",
+      }}
+    >
+      {TaggedPostArray.map((eachPost) => (
+        <ActualPost eachPost={eachPost} />
+      ))}
     </View>
   );
 }

@@ -27,13 +27,13 @@ export const PostsArray = [
 // Tagged Post Shared on Instagram
 export const TaggedPostArray = [
   {
-    uri: "https://www.istockphoto.com/photo/multi-generation-family-on-beach-gm170536938-21060039",
+    url: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
   },
   {
-    uri: "https://media.istockphoto.com/photos/lovely-big-family-with-four-cheerful-sons-are-playing-on-yellow-in-picture-id1060002688?k=20&m=1060002688&s=612x612&w=0&h=2m06GtxFCNB94VOCKFgUu1Ebm7XK2C0MTF-HG5AXtiw=",
+    url: "https://media.istockphoto.com/photos/lovely-big-family-with-four-cheerful-sons-are-playing-on-yellow-in-picture-id1060002688?k=20&m=1060002688&s=612x612&w=0&h=2m06GtxFCNB94VOCKFgUu1Ebm7XK2C0MTF-HG5AXtiw=",
   },
   {
-    uri: "https://media.istockphoto.com/photos/family-reunion-picture-id478224572?k=20&m=478224572&s=612x612&w=0&h=nhEeNchnhwdKRKVPohDijLNLXgupPr7T6HgIslWWfP8=",
+    url: "https://media.istockphoto.com/photos/family-reunion-picture-id478224572?k=20&m=478224572&s=612x612&w=0&h=nhEeNchnhwdKRKVPohDijLNLXgupPr7T6HgIslWWfP8=",
   },
   {
     url: "https://media.istockphoto.com/photos/beautiful-multi-generational-family-sitting-together-on-couch-at-home-picture-id1313461844?k=20&m=1313461844&s=612x612&w=0&h=eqpU3myiu5o5YhvaRGNJsqVPotvokPaWXcVINU6QdxY=",

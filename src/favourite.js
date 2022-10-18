@@ -15,16 +15,20 @@ export default function Favourite() {
 
 function PendingRequest() {
   return (
+    // Container
     <View style={styles.prContainer}>
+      {/* Image */}
       <Image
         source={{
           uri: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80",
         }}
         style={styles.prImage}
       />
+      {/* Circle top of the Image */}
       <View style={styles.prCircleImage}>
         <Text style={styles.textCircle}>123</Text>
       </View>
+      {/* Request and Approve Container */}
       <View style={styles.prResquestContainer}>
         <Text style={styles.prResquestText}>Follow requests</Text>
         <Text style={styles.prApproveIgnore}>Approve and Ignore Request</Text>

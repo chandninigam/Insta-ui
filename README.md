@@ -15,3 +15,11 @@ Insta-ui  in react native
 2. Second View
 <img width="350" alt="Screenshot 2022-10-16 at 7 43 39 PM" src="https://user-images.githubusercontent.com/51984693/196040284-9becf02f-63fd-40f2-b76b-d07538b20648.png">
 
+# Favourite Screen View
+1. First View
+<img width="350" alt="Screenshot 2022-10-19 at 9 18 32 PM" src="https://user-images.githubusercontent.com/51984693/196741297-a97a2922-5a43-4f0e-a96b-ca969ceadf72.png">
+
+2. Second View
+<img width="350" alt="Screenshot 2022-10-19 at 9 18 59 PM" src="https://user-images.githubusercontent.com/51984693/196741632-167f1904-f8b1-44c5-98ea-6a3517fd7998.png">
+
+

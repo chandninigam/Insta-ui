@@ -1,5 +1,12 @@
-import { StyleSheet, Text, View, Dimensions, Image } from "react-native";
-
+import {
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+  Image,
+  ScrollView,
+} from "react-native";
+import { AntDesign as Icon } from "@expo/vector-icons";
 const { height } = Dimensions.get("window");
 
 export default function Favourite() {
@@ -7,11 +14,40 @@ export default function Favourite() {
     <View style={styles.mainContainer}>
       {/* Header */}
       <Text style={styles.header}>Notifications</Text>
-      {/* Pending Request */}
-      <PendingRequest />
-      {/* New On Insta */}
-      <TileHeader title="New" />
-      <NewOnInsta />
+      <ScrollView vertical showsVerticalScrollIndicator={false}>
+        {/* Pending Request */}
+        <PendingRequest />
+        {/* New On Insta */}
+        <TileHeader title="New" />
+        {/* New posts posted by friends */}
+        <NewOnInsta />
+        {/* Yesterday on Insta */}
+        <TileHeader title="Yesterday" />
+        {/* Likes User Details */}
+        <PostMentionLikedYour
+          img1="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwReS2zO2XC-8w7ZUyfkorOH-BtSjScAxxkmDrVOZ3JwDnVHjPunCMLFl8HKRSd-mLYL0&usqp=CAU"
+          img2="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmqnaftc5SB-Vij9YpI49oLipoAo8w06Mpor5fwESQuSEL1ELfFU5x8wV87dp0YqcEkbY&usqp=CAU"
+          img3="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYrSFjk_Q_lHSTTvYduOM8wHYj00O_vWLSwLzMU5pwil0LCeZ95EEKVy4ARXfskXjnpxE&usqp=CAU"
+        />
+        {/* This Week on Insta */}
+        <TileHeader title="This Week" />
+        {/* New posts posted by friends */}
+        <NewOnInsta />
+        {/* New posts posted by friends */}
+        <NewOnInsta />
+        {/* This Week on Insta */}
+        <TileHeader title="Previous Week" />
+        {/* Likes User Details */}
+        <PostMentionLikedYour
+          img1="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxLDEajEW8QIw_X_Zt5S-1rxj0-lhuljenolf6zjfThRco-WTZIlp_QU-BIFFBhjhp9uM&usqp=CAU"
+          img2="https://pixinvent.com/demo/vuexy-bootstrap-laravel-admin-template/demo-1/images/profile/user-uploads/user-04.jpg"
+          img3="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmqnaftc5SB-Vij9YpI49oLipoAo8w06Mpor5fwESQuSEL1ELfFU5x8wV87dp0YqcEkbY&usqp=CAU"
+        />
+        {/* New posts posted by friends */}
+        <NewOnInsta />
+        {/* New posts posted by friends */}
+        <NewOnInsta />
+      </ScrollView>
     </View>
   );
 }
@@ -46,10 +82,51 @@ function PendingRequest() {
   );
 }
 
+// Like Your Post , Mentioned u and commented
+function PostMentionLikedYour({ img1, img2, img3 }) {
+  return (
+    <View style={styles.newOnInstaContainer}>
+      {/* Image Users */}
+      <Image
+        source={{
+          uri: img1,
+        }}
+        style={styles.likedPersonImage}
+      />
+      <Image
+        source={{
+          uri: img2,
+        }}
+        style={styles.otherLikedPersonImage}
+      />
+      {/* Liked Post User Names */}
+      <View style={styles.postRelatedInfo}>
+        <View style={styles.postNameText}>
+          <Text style={styles.postDetail}>priyanka17999</Text>
+          <Text style={styles.textBetweenText}>and</Text>
+          <Text style={styles.postDetail}>m.a.d.h.u.09</Text>
+        </View>
+        <View style={styles.postNameText}>
+          <Text>liked your story.</Text>
+          <Text style={styles.textHour}>1d</Text>
+        </View>
+      </View>
+      {/* Post */}
+      <Image
+        source={{
+          uri: img3,
+        }}
+        style={styles.recentPost}
+      />
+    </View>
+  );
+}
+
 // New On Insta
 function NewOnInsta() {
   return (
     <View style={styles.newOnInstaContainer}>
+      {/* Image Users */}
       <Image
         source={{
           uri: "https://wac-cdn.atlassian.com/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=584",
@@ -62,13 +139,29 @@ function NewOnInsta() {
         }}
         style={styles.otherOnInstaImage}
       />
+      {/* User Who Posted Names */}
       <View style={styles.postRelatedInfo}>
         <Text style={styles.suggText}>Suggested:</Text>
-        <Text style={styles.postDetail}>
-          makeoverbyaanchalbhatia, hiteshchoudharyofficial and
-          urvashi_kiran_sharma
-        </Text>
+        <View>
+          <Text style={styles.postDetail}>makeoverbyaanchalbhatia,</Text>
+          <View style={styles.postNameText}>
+            <Text style={styles.postDetail}>hiteshchoudharyofficial</Text>
+            <Text style={styles.textBetweenText}>and</Text>
+          </View>
+          <View style={styles.postNameText}>
+            <Text style={styles.postDetail}>urvashi_kiran_sharma</Text>
+            <View style={styles.checkView}>
+              <Icon name="checkcircle" color="#0e94c9" />
+            </View>
+            <Text>recently</Text>
+          </View>
+          <View style={styles.postNameText}>
+            <Text>shared new reels.</Text>
+            <Text style={styles.textHour}>21h</Text>
+          </View>
+        </View>
       </View>
+      {/* Post Posted By first User */}
       <Image
         source={{
           uri: "https://www.pixinvent.com/materialize-material-design-admin-template/laravel/demo-4/images/avatar/avatar-7.png",
@@ -132,6 +225,7 @@ const styles = StyleSheet.create({
   newOnInstaContainer: {
     display: "flex",
     flexDirection: "row",
+    paddingVertical: height / 80,
   },
   onInstaImage: {
     position: "relative",
@@ -146,7 +240,7 @@ const styles = StyleSheet.create({
     borderRadius: height / 12,
     borderColor: "white",
     borderWidth: 1,
-    top: 8,
+    bottom: height / 20,
     left: 16,
   },
   postRelatedInfo: {
@@ -165,5 +259,38 @@ const styles = StyleSheet.create({
   recentPost: {
     height: height / 20,
     width: height / 20,
+  },
+  textBetweenText: {
+    fontWeight: "400",
+    display: "flex",
+    paddingHorizontal: 4,
+  },
+  postNameText: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  checkView: {
+    paddingHorizontal: 4,
+  },
+  textHour: {
+    fontWeight: "200",
+    paddingLeft: 4,
+  },
+  likedPersonImage: {
+    position: "relative",
+    height: height / 24,
+    width: height / 24,
+    borderRadius: height / 12,
+  },
+  otherLikedPersonImage: {
+    position: "absolute",
+    height: height / 24,
+    width: height / 24,
+    borderRadius: height / 12,
+    borderColor: "white",
+    borderWidth: 1,
+    bottom: height / 170,
+    left: 16,
   },
 });

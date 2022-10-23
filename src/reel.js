@@ -52,9 +52,25 @@ export default function Reel() {
             <Icon4 name="paper-plane-outline" size={32} color="white" />
           </View>
           {/* More Option */}
-          <View style={styles.commentView}>
-            <Icon5 name="dots-three-vertical" size={24} color="white" />
+          <View style={styles.moreOptionView}>
+            <View style={styles.userDetail}>
+              <Image
+                source={{
+                  uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnS1o3mO3S_Nkfw1WAGaRJ6KaOGgODpfoOsA&usqp=CAU",
+                }}
+                style={styles.reelPersonName}
+              />
+              <Text style={styles.userName}>ronishanmnakeovers</Text>
+              <Text style={styles.followText}>Follow</Text>
+            </View>
+            <TouchableOpacity style={styles.options}>
+              <Icon5 name="dots-three-vertical" size={24} color="white" />
+            </TouchableOpacity>
           </View>
+          {/* PostTagLine */}
+          {/* <View style={styles.tagLineView}>
+            <View style={styles.audio}></View>
+          </View> */}
         </View>
       </ScrollView>
     </View>
@@ -65,14 +81,14 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   reelImage: {
-    height: height,
+    height: height / 1.1,
     width: width,
     position: "relative",
   },
   textContainer: {
     position: "absolute",
     paddingHorizontal: height / 80,
-    height: height,
+    height: height / 1.1,
     width: width,
   },
   header: {
@@ -93,7 +109,7 @@ const styles = StyleSheet.create({
   favView: {
     display: "flex",
     alignItems: "flex-end",
-    marginTop: height / 2.5,
+    marginTop: height / 2.2,
   },
   likeNum: {
     color: "white",
@@ -105,5 +121,40 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "flex-end",
     paddingTop: height / 30,
+  },
+  moreOptionView: {
+    display: "flex",
+    flexDirection: "row",
+    paddingTop: height / 30,
+  },
+  userDetail: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    flex: 1,
+  },
+  reelPersonName: {
+    height: height / 24,
+    width: height / 24,
+    borderRadius: height / 15,
+  },
+  userName: {
+    fontSize: height / 50,
+    paddingLeft: height / 90,
+    paddingRight: height / 50,
+    color: "white",
+  },
+  followText: {
+    color: "white",
+    borderColor: "white",
+    borderWidth: 1,
+    paddingHorizontal: height / 50,
+    paddingVertical: height / 80,
+    borderRadius: height / 90,
+    fontSize: height / 60,
+  },
+  options: {
+    display: "flex",
+    alignSelf: "center",
   },
 });

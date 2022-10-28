@@ -22,4 +22,6 @@ Insta-ui  in react native
 2. Second View
 <img width="350" alt="Screenshot 2022-10-19 at 9 18 59 PM" src="https://user-images.githubusercontent.com/51984693/196741632-167f1904-f8b1-44c5-98ea-6a3517fd7998.png">
 
+# Reel Screen View
+<img width="350" alt="Screenshot 2022-10-28 at 8 36 18 PM" src="https://user-images.githubusercontent.com/51984693/198668529-29d4c4ad-cc85-4829-9f1c-3fe555e45ce9.png">
 

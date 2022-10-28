@@ -13,6 +13,7 @@ import {
   Fontisto as Icon3,
   Ionicons as Icon4,
   Entypo as Icon5,
+  MaterialIcons as Icon6,
 } from "@expo/vector-icons";
 
 const { height, width } = Dimensions.get("window");
@@ -68,9 +69,26 @@ export default function Reel() {
             </TouchableOpacity>
           </View>
           {/* PostTagLine */}
-          {/* <View style={styles.tagLineView}>
-            <View style={styles.audio}></View>
-          </View> */}
+          <View style={styles.tagLineView}>
+            {/* Text left hand side */}
+            <View style={styles.audio}>
+              <Text style={styles.tagText}>Teeth Whiteing home remedy ...</Text>
+              <View style={styles.tagLineDetail}>
+                <Icon6 name="multitrack-audio" color="white" size={24} />
+                <Text style={styles.tagSubText}>Original aud ...</Text>
+                <Text style={styles.tagSubText}>ronishanmnakeovers</Text>
+              </View>
+            </View>
+            {/* Image right hand side */}
+            <TouchableOpacity>
+              <Image
+                source={{
+                  uri: "https://img.freepik.com/free-photo/self-portrait-beautiful-chinese-girl_1262-18293.jpg?w=2000",
+                }}
+                style={styles.tagLineImage}
+              />
+            </TouchableOpacity>
+          </View>
         </View>
       </ScrollView>
     </View>
@@ -81,7 +99,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   reelImage: {
-    height: height / 1.1,
+    height: height / 1.15,
     width: width,
     position: "relative",
   },
@@ -109,7 +127,7 @@ const styles = StyleSheet.create({
   favView: {
     display: "flex",
     alignItems: "flex-end",
-    marginTop: height / 2.2,
+    marginTop: height / 2.5,
   },
   likeNum: {
     color: "white",
@@ -156,5 +174,36 @@ const styles = StyleSheet.create({
   options: {
     display: "flex",
     alignSelf: "center",
+  },
+  tagLineView: {
+    display: "flex",
+    flexDirection: "row",
+    paddingTop: height / 70,
+    alignItems: "center",
+  },
+  audio: {
+    display: "flex",
+    flex: 1,
+  },
+  tagText: {
+    color: "white",
+    fontSize: height / 50,
+  },
+  tagLineImage: {
+    height: height / 20,
+    width: height / 20,
+    borderColor: "white",
+    borderWidth: 1,
+    borderRadius: height / 70,
+  },
+  tagLineDetail: {
+    display: "flex",
+    flexDirection: "row",
+    paddingTop: height / 70,
+  },
+  tagSubText: {
+    color: "white",
+    fontSize: height / 60,
+    paddingHorizontal: height / 80,
   },
 });

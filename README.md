@@ -25,3 +25,7 @@ Insta-ui  in react native
 # Reel Screen View
 <img width="350" alt="Screenshot 2022-10-28 at 8 36 18 PM" src="https://user-images.githubusercontent.com/51984693/198668529-29d4c4ad-cc85-4829-9f1c-3fe555e45ce9.png">
 
+# Search Screen View
+<img width="350" alt="Screenshot 2022-10-29 at 12 30 33 PM" src="https://user-images.githubusercontent.com/51984693/198818629-ac41e4c2-7757-499d-a11c-aad6c82e9ef3.png">
+
+
